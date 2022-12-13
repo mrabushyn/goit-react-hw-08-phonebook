@@ -7,36 +7,10 @@ import { RestrictedRoute } from './RestrictedRoute';
 import { refreshUser } from 'redux/auth/operations';
 import { useAuth } from 'hooks';
 
-// import css from './Phonebook.module.css';
-// import Phonebook from 'pages/Phonebook';
 const HomePage = lazy(() => import('pages/Home'));
 const RegisterPage = lazy(() => import('pages/Register'));
 const LoginPage = lazy(() => import('pages/Login'));
 const Phonebook = lazy(() => import('pages/Phonebook'));
-
-// export const App = () => {
-//   return (
-//     <Routes>
-//       <Route path="/" element={<Layout />}>
-//         <Route index element={<Homepage />} />
-//         <Route path="/register" element={<RegisterPage />} />
-//         <Route path="/login" element={<LoginPage />} />
-//         <Route
-//           className={css.phonebookContainer}
-//           path="/contacts"
-//           element={<Phonebook />}
-//         />
-//       </Route>
-//     </Routes>
-
-//     // <div className={css.phonebookContainer}>
-//     //   <Phonebook />
-//     // </div>
-//   );
-// };
-
-
-
 
 export const App = () => {
   const dispatch = useDispatch();

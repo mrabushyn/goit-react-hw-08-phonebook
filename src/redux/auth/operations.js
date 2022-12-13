@@ -23,8 +23,7 @@ export const register = createAsyncThunk(
       toast('Congratulation!! Successfull registration');
       return response.data;
     } catch (error) {
-      toast('Such a user is already registered');
-
+      toast('Something wrong :-{(. Try again)');
       return thunkAPI.rejectWithValue(error.message);
     }
   }
@@ -36,6 +35,8 @@ export const logIn = createAsyncThunk(
     try {
       const response = await axios.post('/users/login', credentials);
       setAuthHeader(response.data.token);
+      toast('This is your "Phonebook"');
+
       return response.data;
     } catch (error) {
       toast('Wrong email or password, try again');
@@ -49,9 +50,9 @@ export const logOut = createAsyncThunk('auth/logout', async (_, thunkAPI) => {
   try {
     await axios.post('/users/logout');
     clearAuthHeader();
+      toast('see you later');
   } catch (error) {
-      toast('WHAAAATTTTTTTTT??????');
-
+      toast('Pum-purum');
     return thunkAPI.rejectWithValue(error.message);
   }
 });
@@ -68,7 +69,7 @@ setAuthHeader(token);
       const response = await axios.get('/users/current');
       return response.data;
     } catch (error) {
-      console.log(error.message);
+      toast('Oh, no. LogIn');
       return thunkAPI.rejectWithValue(error.message);
     }
   }
