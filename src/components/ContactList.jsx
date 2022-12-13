@@ -1,24 +1,23 @@
 import { useSelector, useDispatch } from 'react-redux';
-import css from './Phonebook.module.css';
+import css from 'components/Phonebook.module.css';
 
 import { useEffect } from 'react';
-import { fetchContacts, deleteContact } from 'redux/contactOperations';
-import { selectContacts, selectFilter } from 'redux/selectors';
-// import {ContactsApi} from 'components/ContactsQuery'
+import { fetchContacts, deleteContact } from 'redux/contacts/contactOperations';
+import { selectContacts, selectFilter } from 'redux/contacts/selectors';
 
-export default function ContactList () {
-// console.log('data', data);
+
+export default function ContactList() {
 
   const dispatch = useDispatch();
 
   const { items, isLoading, error } = useSelector(selectContacts);
   const filter = useSelector(selectFilter);
-console.log('items', items);
+  console.log('items', items);
   const normalizedFilter = filter.toLowerCase();
   const filteredContacts = items.filter(contact =>
     contact.name.toLowerCase().includes(normalizedFilter)
   );
-  
+
   useEffect(() => {
     dispatch(fetchContacts());
   }, [dispatch]);

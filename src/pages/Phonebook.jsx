@@ -1,13 +1,11 @@
 import { useDispatch, useSelector } from 'react-redux';
-import { addContact } from 'redux/contactOperations';
-import { selectContacts } from 'redux/selectors';
-// import { Helmet } from 'react-helmet';
+import { addContact } from 'redux/contacts/contactOperations';
+import { selectContacts } from 'redux/contacts/selectors';
+import { Helmet } from 'react-helmet';
 
-
-import Filter from '../components/Filter';
-import ContactList from '../components/ContactList';
-import ContactForm from '../components/ContactForm';
-// import { Outlet } from 'react-router-dom';
+import Filter from 'components/Filter';
+import ContactList from 'components/ContactList';
+import ContactForm from 'components/ContactForm';
 
 export default function Phonebook() {
   const dispatch = useDispatch();
@@ -27,9 +25,9 @@ export default function Phonebook() {
 
   return (
     <div>
-      {/* <Helmet> */}
-        <h2>Phonebook</h2>
-      {/* </Helmet> */}
+      <Helmet>
+      <h2>Phonebook</h2>
+      </Helmet>
       <ContactForm formSubmitHandler={formSubmitHandler} />
       <h2>Contacts</h2>
       <Filter />

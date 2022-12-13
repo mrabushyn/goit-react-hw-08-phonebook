@@ -39,6 +39,14 @@ const authSlice = createSlice({
       state.isRefreshing = false;
     },
   },
+  // extraReducers: builder =>
+  //   builder
+  //     .addCase(register.pending, (state, action) => state)
+  //     .addCase(register.fulfilled, (state, action) => {})
 });
+
+
+
+
 
 export const authReducer = authSlice.reducer;

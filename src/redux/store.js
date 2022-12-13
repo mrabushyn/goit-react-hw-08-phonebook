@@ -10,8 +10,8 @@ import {
   REGISTER,
 } from 'redux-persist';
 import storage from 'redux-persist/lib/storage';
-import contactsFetchReducer from './fetchContactsSlice';
-import { authReducer } from './auth/slice';
+import contactsFetchReducer from 'redux/contacts/fetchContactsSlice';
+import { authReducer } from 'redux/auth/slice';
 
 const middleware = [
   ...getDefaultMiddleware({
@@ -21,7 +21,6 @@ const middleware = [
   }),
 ];
 
-// Persisting token field from auth slice to localstorage
 const authPersistConfig = {
   key: 'auth',
   storage,
