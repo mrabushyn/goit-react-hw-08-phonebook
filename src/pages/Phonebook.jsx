@@ -1,7 +1,6 @@
 import { useDispatch, useSelector } from 'react-redux';
 import { addContact } from 'redux/contacts/contactOperations';
 import { selectContacts } from 'redux/contacts/selectors';
-import { Helmet } from 'react-helmet';
 
 import Filter from 'components/Filter';
 import ContactList from 'components/ContactList';
@@ -25,9 +24,7 @@ export default function Phonebook() {
 
   return (
     <div>
-      <Helmet>
       <h2>Phonebook</h2>
-      </Helmet>
       <ContactForm formSubmitHandler={formSubmitHandler} />
       <h2>Contacts</h2>
       <Filter />
